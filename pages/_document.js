@@ -7,7 +7,7 @@ import createEmotionCache from '../src/createEmotionCache';
 export default class MyDocument extends Document {
   render() {
     return (
-      <Html lang="en">
+      <Html lang="en" style={{ scrollBehavior: 'smooth'}}>
         <Head>
           {/* PWA primary color */}
           <meta name="theme-color" content={theme.palette.primary.main} />
@@ -19,7 +19,7 @@ export default class MyDocument extends Document {
           <meta name="emotion-insertion-point" content="" />
           {this.props.emotionStyleTags}
         </Head>
-        <body>
+        <body >
           <Main />
           <NextScript />
         </body>
