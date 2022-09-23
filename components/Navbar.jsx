@@ -32,7 +32,7 @@ function Navbar(props) {
 	const drawer = (
 		<Box onClick={props.handleDrawerToggle} sx={{ textAlign: 'center' }}>
 			<Typography variant='h6' sx={{ my: 2 }}>
-				MUI
+				Zesty.io
 			</Typography>
 			<Divider />
 			<List>
