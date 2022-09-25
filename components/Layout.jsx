@@ -1,5 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
+import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
@@ -8,7 +9,9 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Fade from '@mui/material/Fade';
 
 //import components
+import OpenGraphHead from '../components/OpenGraphHead';
 import Navbar from '../components/Navbar';
+import Footer from './Footer';
 
 function ScrollTop(props) {
 	const { children, window } = props;
@@ -67,22 +70,24 @@ function Layout(props) {
 		window !== undefined ? () => window().document.body : undefined;
 
 	return (
-		<Box sx={{ display: 'flex', justifyContent: 'center' }}>
+		<Container maxWidth='lg'>
+			<OpenGraphHead />
 			<Navbar
 				handleDrawerToggle={handleDrawerToggle}
 				container={container}
 				mobileOpen={mobileOpen}
 			/>
-			<Box component='main' sx={{ p: 3, width: '1200px' }}>
+			<Box component='main' sx={{ p: 3 }}>
 				<Toolbar id='back-to-top-anchor' />
 				{props.children}
 			</Box>
+			<Footer />
 			<ScrollTop {...props}>
 				<Fab size='small' aria-label='scroll back to top'>
 					<KeyboardArrowUpIcon />
 				</Fab>
 			</ScrollTop>
-		</Box>
+		</Container>
 	);
 }
 

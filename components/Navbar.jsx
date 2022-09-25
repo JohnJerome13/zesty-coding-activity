@@ -2,6 +2,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
@@ -14,6 +15,10 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+
+// Import components
+import Logo from './Logo';
 
 const drawerWidth = 240;
 
@@ -32,7 +37,12 @@ function Navbar(props) {
 	const drawer = (
 		<Box onClick={props.handleDrawerToggle} sx={{ textAlign: 'center' }}>
 			<Typography variant='h6' sx={{ my: 2 }}>
-				Zesty.io
+				<Logo
+					sx={{
+						height: 42,
+						width: 150,
+					}}
+				/>
 			</Typography>
 			<Divider />
 			<List>
@@ -48,37 +58,65 @@ function Navbar(props) {
 			</List>
 		</Box>
 	);
+	const router = useRouter();
 
 	return (
 		<>
-			<AppBar component='nav' style={{ background: 'rgb(255, 93, 10)' }}>
-				<Toolbar>
-					<IconButton
-						color='inherit'
-						aria-label='open drawer'
-						edge='start'
-						onClick={props.handleDrawerToggle}
-						sx={{ mr: 2, display: { sm: 'none' } }}
-					>
-						<MenuIcon />
-					</IconButton>
-					<Typography
-						variant='h6'
-						component='div'
-						sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-					>
-						Zesty.io
-					</Typography>
-					<Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-						{navItems.map((item) => (
-							<Link key={item.text} href={item.href} passHref>
-								<Button variant='text' sx={{ color: '#fff' }} component='a'>
-									{item.text}
-								</Button>
-							</Link>
-						))}
-					</Box>
-				</Toolbar>
+			<AppBar
+				component='nav'
+				color='default'
+				sx={{
+					background:
+						'-webkit-linear-gradient(-25deg, #fff 50%, rgb(255, 93, 10) 50%)',
+				}}
+			>
+				<Container maxWidth='lg'>
+					<Toolbar>
+						<IconButton
+							color='inherit'
+							aria-label='open drawer'
+							edge='start'
+							onClick={props.handleDrawerToggle}
+							sx={{ mr: 2, display: { sm: 'none' } }}
+						>
+							<MenuIcon />
+						</IconButton>
+						<Box
+							sx={{
+								flexGrow: 1,
+								display: 'flex',
+							}}
+						>
+							<Logo
+								sx={{
+									width: 150,
+									display: { xs: 'none', sm: 'block' },
+								}}
+							/>
+						</Box>
+
+						<Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+							{navItems.map((item) => (
+								<Link key={item.text} href={item.href} passHref>
+									<Button
+										variant='text'
+										sx={{
+											color: '#fff',
+											marginRight: 3,
+											'&:hover': {
+												background: 'rgba(218, 223, 225, 0.25)',
+											},
+										}}
+										className={router.pathname != item.href ? 'inactive' : ''}
+										component='a'
+									>
+										{item.text}
+									</Button>
+								</Link>
+							))}
+						</Box>
+					</Toolbar>
+				</Container>
 			</AppBar>
 
 			<Box component='nav'>
