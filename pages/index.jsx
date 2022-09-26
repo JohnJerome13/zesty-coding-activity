@@ -16,7 +16,7 @@ const MotionBox = motion(Box);
 const mainFeaturedPost = {
 	title: 'Visual content management',
 	description: 'for any digital channel',
-	image: './bigstock-San-Diego-from-Ferry-Landing-i-26249672.jpg',
+	image: './zesty-manager-black-and-white.BJ7n6BCnl.jpg',
 	imageText: 'main image description',
 };
 

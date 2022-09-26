@@ -77,7 +77,7 @@ function Layout(props) {
 				container={container}
 				mobileOpen={mobileOpen}
 			/>
-			<Box component='main' sx={{ p: 3 }}>
+			<Box component='main' sx={{ mt: 2 }}>
 				<Toolbar id='back-to-top-anchor' />
 				{props.children}
 			</Box>

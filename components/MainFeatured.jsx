@@ -51,16 +51,23 @@ function MainFeatured(props) {
 					>
 						<Typography
 							component='h1'
-							variant='h3'
+							// variant='h3'
 							color='inherit'
 							sx={{
 								textTransform: 'capitalize',
+								typography: { md: 'h3', xs: 'h4' },
 							}}
 							gutterBottom
 						>
 							{post.title}
 						</Typography>
-						<Typography variant='h5' color='inherit' paragraph>
+						<Typography
+							color='inherit'
+							sx={{
+								typography: { md: 'h5', xs: 'h6' },
+							}}
+							paragraph
+						>
 							{post.description}
 						</Typography>
 						<Box
