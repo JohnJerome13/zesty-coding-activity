@@ -67,7 +67,7 @@ function Navbar(props) {
 				color='default'
 				sx={{
 					background:
-						'-webkit-linear-gradient(-25deg, #fff 50%, rgb(255, 93, 10) 50%)',
+						'-webkit-linear-gradient(-25deg, #fff 65%, rgb(255, 93, 10) 65%)',
 				}}
 			>
 				<Container maxWidth='lg'>
